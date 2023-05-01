@@ -1,0 +1,13 @@
+Package: batR
+Title: batR
+Version: 0.0.1
+Description: R package for all the functions that I have made for working on my dissertation and other projects.
+License: License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Imports: ggplot2, stopwords, dplyr, magrittr
+RoxygenNote: 7.2.3
+NeedsCompilation: no
+Packaged: 2023-01-15 00:09:55 UTC; timothyelder
+Author: Timothy Elder [aut, cre]
+Maintainer: Timothy Elder <timothyelder@uchicago.edu>
