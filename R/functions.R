@@ -1,6 +1,7 @@
 #' University of Chicago Primary Colors
 #'
 #' The Maroon and Grey of the University of Chicago
+#' @export
 #'
 uc_primary_pal <- c("#800000", "#767676", "#D6D6CE")
 
@@ -8,6 +9,8 @@ uc_primary_pal <- c("#800000", "#767676", "#D6D6CE")
 #'
 #' Secondary palette from the graphic identity guidelines. Use this
 #' for all sorts of things, including visualizations.
+#' 
+#' @export
 #'
 uc_second_pal <- c("#FFA319", "#C16622", "#8F3931",
                   "#8A9045", "#58593F", "#155F83", "#350E20")
@@ -16,6 +19,8 @@ uc_second_pal <- c("#FFA319", "#C16622", "#8F3931",
 #'
 #' Tinted palette from the graphic identity guidelines. Use this for slightly
 #' different colors from the secondary palette.
+#' 
+#' @export
 #'
 uc_tinted_pal <- c("#FFB547", "#D49464", "#B1746F",
                   "#ADB17D", "#8A8B79", "#5B8FA8", "#725663")
@@ -24,6 +29,8 @@ uc_tinted_pal <- c("#FFB547", "#D49464", "#B1746F",
 #'
 #' Shaded palette from the graphic identity guidelines. Use this for some darker
 #' colors from the secondary palette
+#' 
+#' @export
 #'
 uc_shade_pal <- c("#C68220", "#9A5324", "#642822",
                   "#616530", "#3E3E23", "#0F425C")
@@ -32,6 +39,8 @@ uc_shade_pal <- c("#C68220", "#9A5324", "#642822",
 #'
 #' Violate palette from the graphic identity guidelines. use this for
 #' highlighting bad things.
+#' 
+#' @export
 #'
 uc_violate_pal <- c("#47B5FF", "#FF3399")
 
@@ -39,6 +48,8 @@ uc_violate_pal <- c("#47B5FF", "#FF3399")
 #'
 #' A random palette of colors that I put together that are all sort of blue.
 #' Probably not good for much of anything.
+#' 
+#' @export
 #'
 te_pal <- c("#2A5B96", "#1868AA", "#7EBCEB",
             "#AADAFF", "#9AD1FA")
@@ -47,6 +58,8 @@ te_pal <- c("#2A5B96", "#1868AA", "#7EBCEB",
 #'
 #' A palette of colors for 2023, includes "skyblue", "coral", "seafoam green",
 #' "mauve", and a slate grey. Good for visualizations.
+#' 
+#' @export
 #'
 twenty_twenty_three_pal <- c("#87CEEB", "#9FE2BF", "#FA8072",
                              "#CC8899", "#D3D3D3")
@@ -56,7 +69,8 @@ twenty_twenty_three_pal <- c("#87CEEB", "#9FE2BF", "#FA8072",
 #' such as a data frame.
 #'
 #' @param x A vector like object such as a list or data frame column
-#'
+#' @export
+#' 
 howmuch <- function(x){
   # count the unique values in a vector or list
   n <- length(unique(x))
@@ -69,6 +83,8 @@ howmuch <- function(x){
 #' View the palette of colors that you specify.
 #'
 #' @param x A palette of colors in a vetor.
+#' @export
+#' 
 viewpal <- function(x, ...) {
   n <- length(x)
   old <- par(mar = c(0.5, 0.5, 0.5, 0.5))
@@ -104,6 +120,7 @@ gen.mat.to.edge.list <- function(mat, symmetric = TRUE,
 #'
 #' I found this in some library called "psych".
 #' @param x A dataframe
+#' @export
 #' 
 describe <- function(x, na.rm = TRUE, interp = FALSE, skew = TRUE,
                      ranges = TRUE, trim = 0.1, type = 3, check = TRUE,
@@ -366,6 +383,7 @@ net2df <- function(g){
 #' list elements.
 #' @param x A list
 #' @returns A string
+#' @export
 #'
 ls2str <- function(x){
   paste(unlist(x), collapse = ", ")
@@ -374,6 +392,7 @@ ls2str <- function(x){
 #' Scatterplot Theme
 #'
 #' A minimal Scatter plot theme for ggplot and sets font to Roboto
+#' @export
 #' @example
 #' ggplot(data, aes(x = X, y = Y)) + geom_point() + scatter_theme
 #'
@@ -386,7 +405,7 @@ scatter_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Mod
 #' General Purpose Plot Theme
 #' 
 #' Use for plots in general to make them look better
-#' 
+#' @export
 #' 
 te_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Modern Roman", size = 10),
                        axis.text.x = ggplot2::element_text(size = 10),
@@ -395,6 +414,8 @@ te_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Modern R
                        axis.title.y = ggplot2::element_text(size = 10))
 
 #' Blank X and Y Axes
+#' 
+#' @export
 #' 
 blank_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Modern Roman", size = 10), 
                      axis.title.y = ggplot2::element_blank(),
@@ -408,7 +429,8 @@ blank_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Moder
 #' Negation
 #'
 #' A "not in" operator for working with lists.
-#'
+#' 
+#' @export
 #' @examples
 #' bad <- c("this", "that", "other_thing")
 #' good <- c("this", "cat", "that", "dog", "other_thing", "bat")
@@ -419,6 +441,7 @@ blank_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Moder
 #' Get Mode
 #' 
 #' Get the mode from a vector of values
+#' @export
 #'
 getmode <- function(v) {
   uniqv <- unique(v)
