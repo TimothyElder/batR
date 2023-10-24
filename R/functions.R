@@ -1,3 +1,17 @@
+#' The Color Red
+#'
+#' Quick function for "red". Saves two characters
+#' @export
+#'
+red <- "red"
+
+#' The Color Blue
+#'
+#' Quick function for "blue". Saves two characters
+#' @export
+#'
+blue <- "blue"
+
 #' University of Chicago Primary Colors
 #'
 #' The Maroon and Grey of the University of Chicago
@@ -72,7 +86,6 @@ twenty_twenty_three_pal <- c("#87CEEB", "#9FE2BF", "#FA8072",
 #' @export
 #' 
 howmuch <- function(x){
-  # count the unique values in a vector or list
   n <- length(unique(x))
   return(n)
 }
@@ -82,7 +95,7 @@ howmuch <- function(x){
 #'
 #' View the palette of colors that you specify.
 #'
-#' @param x A palette of colors in a vetor.
+#' @param x A palette of colors in a vector.
 #' @export
 #' 
 viewpal <- function(x, ...) {
@@ -97,6 +110,10 @@ viewpal <- function(x, ...) {
   text((n + 1) / 2, 1, labels = attr(x, "name"), cex = 1, family = "serif")
 }
 
+#' Edge list from Matrix
+#' 
+#' Creates an edge list from an adjacency matrix.
+#' 
 gen.mat.to.edge.list <- function(mat, symmetric = TRUE,
                                  diagonal = FALSE, text = FALSE) {
     #create edge list from matrix
@@ -393,10 +410,11 @@ ls2str <- function(x){
 #'
 #' A minimal Scatter plot theme for ggplot and sets font to Roboto
 #' @export
+#' 
 #' @example
 #' ggplot(data, aes(x = X, y = Y)) + geom_point() + scatter_theme
 #'
-scatter_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Modern Roman", size = 10),
+scatter_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Roboto", size = 10),
                        axis.text.x = ggplot2::element_text(size = 10),
                        axis.text.y = ggplot2::element_text(size = 10),
                        axis.title.x = ggplot2::element_text(size = 10),
@@ -407,7 +425,7 @@ scatter_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Mod
 #' Use for plots in general to make them look better
 #' @export
 #' 
-te_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Modern Roman", size = 10),
+te_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Roboto", size = 10),
                        axis.text.x = ggplot2::element_text(size = 10),
                        axis.text.y = ggplot2::element_text(size = 10),
                        axis.title.x = ggplot2::element_text(size = 10),
@@ -417,7 +435,7 @@ te_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Modern R
 #' 
 #' @export
 #' 
-blank_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Modern Roman", size = 10), 
+blank_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Roboto", size = 10), 
                      axis.title.y = ggplot2::element_blank(),
                      axis.text.y = ggplot2::element_blank(),
                      axis.ticks.y = ggplot2::element_blank(),
@@ -446,4 +464,24 @@ blank_theme <- ggplot2::theme(text = ggplot2::element_text(family = "Latin Moder
 getmode <- function(v) {
   uniqv <- unique(v)
   uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+#' Inverse Logit
+#'
+#' Returns odds ratio from logit
+#' @export
+#'
+inv.logit <- function(x) {
+  1/(1+exp(-x))
+}
+
+#' Logit to Progbability
+#' 
+#' Converts logits to probabilities
+#' @export
+#' 
+logit2prob <- function(logit){
+  odds <- exp(logit)
+  prob <- odds / (1 + odds)
+  return(prob)
 }
