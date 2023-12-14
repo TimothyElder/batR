@@ -113,9 +113,10 @@ viewpal <- function(x, ...) {
 #' Edge list from Matrix
 #' 
 #' Creates an edge list from an adjacency matrix.
+#' @export
 #' 
-gen.mat.to.edge.list <- function(mat, symmetric = TRUE,
-                                 diagonal = FALSE, text = FALSE) {
+matrix2edges <- function(mat, symmetric = TRUE,
+                         diagonal = FALSE, text = FALSE) {
     #create edge list from matrix
     # if symmetric duplicates are removed
     mat <- as.matrix(mat)
@@ -484,4 +485,114 @@ logit2prob <- function(logit){
   odds <- exp(logit)
   prob <- odds / (1 + odds)
   return(prob)
+}
+
+#' List of States
+#' @noRd 
+us_states <- c(
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California",
+  "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+  "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
+  "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+  "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri",
+  "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+  "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
+  "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+  "South Dakota", "Tennessee", "Texas", "Utah", "Vermont",
+  "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+)
+
+#' List of State Abbreviations
+#' @noRd
+state_abbreviations <- c(
+  "AL", "AK", "AZ", "AR", "CA",
+  "CO", "CT", "DE", "FL", "GA",
+  "HI", "ID", "IL", "IN", "IA",
+  "KS", "KY", "LA", "ME", "MD",
+  "MA", "MI", "MN", "MS", "MO",
+  "MT", "NE", "NV", "NH", "NJ",
+  "NM", "NY", "NC", "ND", "OH",
+  "OK", "OR", "PA", "RI", "SC",
+  "SD", "TN", "TX", "UT", "VT",
+  "VA", "WA", "WV", "WI", "WY"
+)
+
+#' List of States and their    Abbreviations
+#' @describeIn Create a named vector mapping state names to abbreviations
+#' @noRd 
+state_dict <- c(
+  "Alabama" = "AL",
+  "Alaska" = "AK",
+  "Arizona" = "AZ",
+  "Arkansas" = "AR",
+  "California" = "CA",
+  "Colorado" = "CO",
+  "Connecticut" = "CT",
+  "Delaware" = "DE",
+  "Florida" = "FL",
+  "Georgia" = "GA",
+  "Hawaii" = "HI",
+  "Idaho" = "ID",
+  "Illinois" = "IL",
+  "Indiana" = "IN",
+  "Iowa" = "IA",
+  "Kansas" = "KS",
+  "Kentucky" = "KY",
+  "Louisiana" = "LA",
+  "Maine" = "ME",
+  "Maryland" = "MD",
+  "Massachusetts" = "MA",
+  "Michigan" = "MI",
+  "Minnesota" = "MN",
+  "Mississippi" = "MS",
+  "Missouri" = "MO",
+  "Montana" = "MT",
+  "Nebraska" = "NE",
+  "Nevada" = "NV",
+  "New Hampshire" = "NH",
+  "New Jersey" = "NJ",
+  "New Mexico" = "NM",
+  "New York" = "NY",
+  "North Carolina" = "NC",
+  "North Dakota" = "ND",
+  "Ohio" = "OH",
+  "Oklahoma" = "OK",
+  "Oregon" = "OR",
+  "Pennsylvania" = "PA",
+  "Rhode Island" = "RI",
+  "South Carolina" = "SC",
+  "South Dakota" = "SD",
+  "Tennessee" = "TN",
+  "Texas" = "TX",
+  "Utah" = "UT",
+  "Vermont" = "VT",
+  "Virginia" = "VA",
+  "Washington" = "WA",
+  "West Virginia" = "WV",
+  "Wisconsin" = "WI",
+  "Wyoming" = "WY"
+)
+
+
+#' Convert State to Abbreviation
+#' 
+#' Function to onvert state names to abbreviations
+#' @export
+#' @example
+#' state_name <- "California"
+#' abbreviation <- state_to_abbreviation(state_name)
+#' cat(paste(state_name, "is abbreviated as", abbreviation))
+#'
+state2abbr <- function(x) {
+
+  x <- trimws(x)
+
+  if(x %in% us_states) {
+    x <- state_dict[[x]][[1]]
+  } else if (x %in% state_dict) {
+     x <- x
+  } else {
+    x <- NA
+  }
+  return(x)
 }

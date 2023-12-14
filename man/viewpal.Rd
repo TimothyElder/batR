@@ -7,7 +7,7 @@
 viewpal(x, ...)
 }
 \arguments{
-\item{x}{A palette of colors in a vetor.}
+\item{x}{A palette of colors in a vector.}
 }
 \description{
 View the palette of colors that you specify.
